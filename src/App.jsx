@@ -3,7 +3,7 @@ import HomePage from "./pages/user/HomePage";
 import HistoryPage from "./pages/user/HistoryPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
-import AdminPage from "./pages/admin/AdminPage";
+import AdminQuestionsPage from "./pages/admin/AdminQuestionsPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/questions" element={<AdminQuestionsPage />} />
       </Routes>
     </>
   );

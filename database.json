@@ -27,8 +27,7 @@
         "C": "Bị nghiêm cấm tuỳ từng trường hợp.",
         "D": "Không bị nghiêm cấm nếu có bảo hiểm."
       },
-      "correctOption": "B",
-      "image": ""
+      "correctOption": "B"
     },
     {
       "id": 2,
@@ -41,8 +40,7 @@
         "C": "Biển 2 và 3.",
         "D": "Cả ba biển."
       },
-      "correctOption": "A",
-      "image": "https://example.com/images/bien-bao-cam.jpg"
+      "correctOption": "A"
     },
     {
       "id": 3,
@@ -55,8 +53,47 @@
         "C": "Cả hai xe.",
         "D": "Không xe nào vi phạm."
       },
-      "correctOption": "C",
-      "image": "https://example.com/images/sa-hinh-01.jpg"
+      "correctOption": "C"
+    },
+    {
+      "id": 4,
+      "questionText": "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?",
+      "category": "shapes",
+      "isCritical": false,
+      "options": {
+        "A": "Xe con.",
+        "B": "Xe mô tô.",
+        "C": "Cả hai xe.",
+        "D": "Không xe nào vi phạm."
+      },
+      "correctOption": "C"
+    },
+    {
+      "id": 5,
+      "questionText": "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?",
+      "category": "shapes",
+      "isCritical": true,
+      "options": {
+        "A": "Xe con.",
+        "B": "Xe mô tô.",
+        "C": "Cả hai xe.",
+        "D": "Không xe nào vi phạm."
+      },
+      "correctOption": "C"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "concepts"
+    },
+    {
+      "id": 2,
+      "name": "signs"
+    },
+    {
+      "id": 3,
+      "name": "shapes"
     }
   ],
   "exams": [

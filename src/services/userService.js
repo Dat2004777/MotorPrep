@@ -12,7 +12,7 @@ const userService = {
   },
 
   login: async (user) => {
-    const { username, password } = user;
+    const { username } = user;
 
     try {
       const res = await axios.get(
