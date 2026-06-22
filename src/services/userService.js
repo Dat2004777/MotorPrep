@@ -7,15 +7,21 @@ const userService = {
       return res.data;
     } catch (error) {
       console.error("Lỗi getAllUsers tại userService: ", error);
+      throw error;
     }
   },
 
-  login: async (username) => {
+  login: async (user) => {
+    const { username, password } = user;
+
     try {
-      const res = await axios.get(`http://localhost:3000/users/${username}`);
+      const res = await axios.get(
+        `http://localhost:3000/users?username=${username}`,
+      );
       return res.data;
     } catch (error) {
       console.error("Lỗi login tại userService: ", error);
+      throw error;
     }
   },
 
@@ -33,6 +39,7 @@ const userService = {
       return res.data;
     } catch (error) {
       console.error("Lỗi register tại userService: ", error);
+      throw error;
     }
   },
 };

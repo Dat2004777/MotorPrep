@@ -58,7 +58,7 @@ const RegisterPage = () => {
       const result = await register(newUser);
       if (result) {
         toast.success("Đăng ký thành công");
-        // setTimeout(() => {}, 2000);
+
         navigate("/login");
       } else {
         toast.error("Đăng ký thất bại");

@@ -11,6 +11,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
+
       <main className="container mx-auto px-10">
         <div className="mt-8">
           <Card>
