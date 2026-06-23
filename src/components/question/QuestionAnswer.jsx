@@ -5,10 +5,10 @@ import { Card, CardContent } from "../ui/card";
 
 const QuestionAnswer = () => {
   const [options, setOptions] = useState({
-    A: "Chỉ được phép thực hiện với xe",
-    B: "Không được phép.",
-    C: "Được phép tùy từng trường hợp",
-    D: "Chỉ được phép với xe mô tô hai",
+    A: "",
+    B: "",
+    C: "",
+    D: "",
   });
 
   const [correctOption, setCorrectOption] = useState("");

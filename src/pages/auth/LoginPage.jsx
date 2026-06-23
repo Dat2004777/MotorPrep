@@ -10,9 +10,7 @@ import userService from "@/services/userService";
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const { login: authLogin } = useAuth();
-
-  const { login: userServiceLogin } = userService;
+  const { login } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +29,7 @@ const LoginPage = () => {
     if (!validateForm()) return;
 
     try {
-      const users = await userServiceLogin({ username });
+      const users = await userService.login({ username });
 
       if (users.length === 0) {
         toast.error("Tên đăng nhập hoặc mật khẩu không chính xác");
@@ -43,7 +41,7 @@ const LoginPage = () => {
         return;
       }
 
-      authLogin(users[0]);
+      login(users[0]);
       toast.success("Đăng nhập thành công");
 
       navigate("/");

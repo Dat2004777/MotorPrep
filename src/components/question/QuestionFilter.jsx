@@ -10,7 +10,7 @@ import {
 import { TriangleAlert } from "lucide-react";
 import { Checkbox } from "../ui/checkbox";
 
-const QuestionFilter = () => {
+const QuestionFilter = ({ categories }) => {
   return (
     <>
       <Card className="w-full">
@@ -24,9 +24,11 @@ const QuestionFilter = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectItem value="Khái niệm">Khái niệm</SelectItem>
-                  <SelectItem value="Biển báo">Biển báo</SelectItem>
-                  <SelectItem value="Sa hình">Sa hình</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category.id} value={category.name}>
+                      {category.name}
+                    </SelectItem>
+                  ))}
                 </SelectGroup>
               </SelectContent>
             </Select>

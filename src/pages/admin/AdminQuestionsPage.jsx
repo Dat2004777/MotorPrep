@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Link } from "react-router";
 import QuestionTable from "@/components/question/QuestionTable";
+import { toast } from "sonner";
 
 const AdminQuestionsPage = () => {
   const [questions, setQuestions] = useState([]);
@@ -25,6 +26,20 @@ const AdminQuestionsPage = () => {
   useEffect(() => {
     fetchQuestions();
   }, []);
+
+  const handleDeleteQuestion = async (questionId) => {
+    try {
+      const result = await questionService.deleteQuestion(questionId);
+
+      if (result) {
+        toast.success("Xóa câu hỏi thành công");
+      }
+    } catch (error) {
+      console.log("Lỗi khi xóa câu hỏi tại AdminQuestionCreatePage: ", error);
+      toast.error;
+      ("Lỗi khi xóa câu hỏi");
+    }
+  };
 
   return (
     <>
@@ -55,7 +70,10 @@ const AdminQuestionsPage = () => {
           </div>
 
           <div className="mt-8">
-            <QuestionTable questions={questions} />
+            <QuestionTable
+              questions={questions}
+              onDeleteClick={handleDeleteQuestion}
+            />
           </div>
         </main>
       </SidebarProvider>

@@ -11,9 +11,32 @@ import { useNavigate } from "react-router";
 import QuestionContent from "@/components/question/QuestionContent";
 import QuestionAnswer from "@/components/question/QuestionAnswer";
 import QuestionFilter from "@/components/question/QuestionFilter";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import questionService from "@/services/questionService";
 
 const AdminQuestionCreatePage = () => {
   const navigate = useNavigate();
+
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategories = async () => {
+    try {
+      const res = await questionService.getAllCategories();
+      const data = res;
+      setCategories(data);
+    } catch (error) {
+      console.log(
+        "Lỗi khi lấy categories tại AdminQuestionCreatePage: ",
+        error,
+      );
+      toast.error("Lỗi khi lấy categories");
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <>
@@ -46,7 +69,7 @@ const AdminQuestionCreatePage = () => {
               </div>
 
               <div className="col-span-4">
-                <QuestionFilter />
+                <QuestionFilter categories={categories} />
               </div>
             </div>
 
