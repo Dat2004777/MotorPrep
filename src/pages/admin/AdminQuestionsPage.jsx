@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Link } from "react-router";
-import QuestionTable from "@/components/QuestionTable";
+import QuestionTable from "@/components/question/QuestionTable";
 
 const AdminQuestionsPage = () => {
   const [questions, setQuestions] = useState([]);

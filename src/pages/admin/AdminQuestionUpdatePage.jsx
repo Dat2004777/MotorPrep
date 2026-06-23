@@ -1,5 +1,5 @@
 import AdminSidebar from "@/components/layouts/AdminSidebar";
-import QuestionTable from "@/components/QuestionTable";
+import QuestionTable from "@/components/question/QuestionTable";
 import {
   Card,
   CardDescription,

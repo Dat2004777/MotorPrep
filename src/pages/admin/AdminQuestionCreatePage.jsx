@@ -1,5 +1,4 @@
 import AdminSidebar from "@/components/layouts/AdminSidebar";
-import QuestionTable from "@/components/QuestionTable";
 import {
   Card,
   CardDescription,
@@ -7,23 +6,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { Button } from "@base-ui/react";
-import { Plus } from "lucide-react";
-import { useState } from "react";
-import questionService from "@/services/questionService";
-import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
+import QuestionContent from "@/components/question/QuestionContent";
+import QuestionAnswer from "@/components/question/QuestionAnswer";
+import QuestionFilter from "@/components/question/QuestionFilter";
 
 const AdminQuestionCreatePage = () => {
-  const [questions, setQuestions] = useState([]);
-
-  const fetchQuestions = async () => {
-    const questionsData = await questionService.getAllQuestions();
-    setQuestions(questionsData);
-  };
-
-  useEffect(() => {
-    fetchQuestions();
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -44,15 +34,31 @@ const AdminQuestionCreatePage = () => {
             </Card>
           </div>
 
-          <div className="flex justify-end mt-8">
-            <Button>
-              <Plus />
-              Thêm câu hỏi mới
-            </Button>
-          </div>
+          <div className="p-8 rounded-xl border border-slate-200 bg-white shadow mt-8">
+            <div className="grid grid-cols-12 gap-8">
+              <div className="flex flex-col gap-8 col-span-8">
+                <div>
+                  <QuestionContent />
+                </div>
+                <div>
+                  <QuestionAnswer />
+                </div>
+              </div>
 
-          <div className="mt-8">
-            <QuestionTable questions={questions} />
+              <div className="col-span-4">
+                <QuestionFilter />
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-4 mt-8">
+              <Button
+                onClick={() => navigate("/admin/questions")}
+                variant="outline"
+              >
+                Hủy
+              </Button>
+              <Button variant="default">Lưu</Button>
+            </div>
           </div>
         </main>
       </SidebarProvider>
