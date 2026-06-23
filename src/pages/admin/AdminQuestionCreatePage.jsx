@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router";
 import QuestionContent from "@/components/question/QuestionContent";
@@ -89,8 +89,8 @@ const AdminQuestionCreatePage = () => {
   return (
     <>
       <SidebarProvider>
+        <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
-
         <main className="w-full grow p-8">
           <div>
             <Card>

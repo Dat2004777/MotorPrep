@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import useQuestion from "@/hooks/useQuestion";
@@ -93,8 +93,8 @@ const AdminQuestionUpdatePage = () => {
   return (
     <>
       <SidebarProvider>
+        <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
-
         <main className="w-full grow p-8">
           <div>
             <Card>

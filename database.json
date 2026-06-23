@@ -65,7 +65,7 @@
     {
       "questionText": "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?",
       "category": "signs",
-      "isCritical": true,
+      "isCritical": false,
       "options": {
         "A": "Xe con.",
         "B": "Xe mô tô.",
@@ -94,19 +94,12 @@
     {
       "id": 1,
       "title": "Đề thi số 1",
-      "questionIds": [
-        1,
-        2,
-        3
-      ]
+      "questionIds": [1, 2, 3]
     },
     {
       "id": 2,
       "title": "Đề thi số 2",
-      "questionIds": [
-        2,
-        3
-      ]
+      "questionIds": [2, 3]
     }
   ],
   "histories": [

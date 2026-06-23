@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -24,8 +24,8 @@ const AdminQuestionsPage = () => {
   return (
     <>
       <SidebarProvider>
+        <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
-
         <main className="w-full grow p-8">
           <div>
             <Card>
@@ -40,7 +40,7 @@ const AdminQuestionsPage = () => {
             </Card>
           </div>
 
-          <div className="flex justify-end mt-8">
+          <div className="flex mt-8 items-center justify-end">
             <Link to={"/admin/questions/create"}>
               <Button>
                 <Plus />
