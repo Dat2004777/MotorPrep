@@ -72,7 +72,7 @@
       "id": 5,
       "questionText": "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?",
       "category": "shapes",
-      "isCritical": true,
+      "isCritical": false,
       "options": {
         "A": "Xe con.",
         "B": "Xe mô tô.",

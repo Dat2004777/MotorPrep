@@ -10,7 +10,7 @@ import {
 import { Button } from "../ui/button";
 import { Link } from "react-router";
 
-const QuestionTable = ({ questions }) => {
+const QuestionTable = ({ questions, onDeleteClick }) => {
   return (
     <>
       <div className="rounded-xl border border-slate-200 bg-white shadow w-full p-8">
@@ -44,7 +44,14 @@ const QuestionTable = ({ questions }) => {
                   <Link to={`/admin/questions/update/:id`}>
                     <Button variant="outline">Sửa</Button>
                   </Link>
-                  <Button variant="destructive">Xóa</Button>
+                  <Button
+                    variant="destructive"
+                    onClick={() => {
+                      onDeleteClick(question.id);
+                    }}
+                  >
+                    Xóa
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
