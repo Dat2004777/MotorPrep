@@ -109,8 +109,8 @@
       "examId": 1,
       "examTitle": "Đề thi số 1",
       "date": "2026-06-19T14:30:00Z",
-      "score": 23,
-      "totalQuestions": 25,
+      "score": 7,
+      "totalQuestions": 3,
       "isPassed": true,
       "failedOnCritical": false,
       "userAnswers": [
