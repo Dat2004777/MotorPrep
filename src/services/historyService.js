@@ -41,6 +41,16 @@ const historyService = {
       throw error;
     }
   },
+
+  getHistoryById: async (historyId) => {
+    try {
+      const res = await api.get(`/histories/${historyId}`);
+      return res.data;
+    } catch (error) {
+      console.log("Lỗi getHistoryById tại historyService: ", error);
+      throw error;
+    }
+  },
 };
 
 export default historyService;

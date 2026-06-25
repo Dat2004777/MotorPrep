@@ -24,7 +24,7 @@ const AdminQuestionsPage = () => {
   return (
     <>
       <SidebarProvider>
-        <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
+        {/* <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "} */}
         <AdminSidebar />
         <main className="w-full grow p-8">
           <div>

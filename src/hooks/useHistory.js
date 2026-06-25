@@ -4,6 +4,7 @@ import { toast } from "sonner";
 
 const useHistory = (usingPage) => {
   const [histories, setHistories] = useState([]);
+  const [currentHistory, setCurrentHistory] = useState(null);
 
   const fetchHistoryByUserId = useCallback(
     async (userId) => {
@@ -18,9 +19,24 @@ const useHistory = (usingPage) => {
     [usingPage],
   );
 
+  const fetchHistoryById = useCallback(
+    async (historyId) => {
+      try {
+        const historyData = await historyService.getHistoryById(historyId);
+        setCurrentHistory(historyData);
+      } catch (error) {
+        console.log(`Lỗi khi tải chi tiết lịch sử tại ${usingPage}: `, error);
+        toast.error("Lỗi khi tải chi tiết lịch sử");
+      }
+    },
+    [usingPage],
+  );
+
   return {
     histories,
+    currentHistory,
     fetchHistoryByUserId,
+    fetchHistoryById,
   };
 };
 

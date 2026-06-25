@@ -64,7 +64,7 @@ const ExamTestPage = () => {
   if (questionList.length === 0) {
     return (
       <div className="flex h-screen items-center justify-center text-muted-foreground">
-        Đang tải câu hỏi đề thi số {examId}
+        Đang tải câu hỏi đề thi ...
       </div>
     );
   }
@@ -188,33 +188,30 @@ const ExamTestPage = () => {
                     );
                   })}
                 </CardContent>
+                <CardContent className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      disabled={currentIndex === 0}
+                      onClick={() => setCurrentIndex((prev) => prev - 1)}
+                    >
+                      Câu trước
+                    </Button>
+                    <Button
+                      variant="outline"
+                      disabled={currentIndex === questionList.length - 1}
+                      onClick={() => setCurrentIndex((prev) => prev + 1)}
+                    >
+                      Câu tiếp theo
+                    </Button>
+                  </div>
+                  <Button onClick={() => setIsConfirmOpen(true)}>
+                    Nộp bài
+                  </Button>
+                </CardContent>
               </Card>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8">
-          <Card>
-            <CardContent className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  disabled={currentIndex === 0}
-                  onClick={() => setCurrentIndex((prev) => prev - 1)}
-                >
-                  Câu trước
-                </Button>
-                <Button
-                  variant="outline"
-                  disabled={currentIndex === questionList.length - 1}
-                  onClick={() => setCurrentIndex((prev) => prev + 1)}
-                >
-                  Câu tiếp theo
-                </Button>
-              </div>
-              <Button onClick={() => setIsConfirmOpen(true)}>Nộp bài</Button>
-            </CardContent>
-          </Card>
         </div>
 
         <ExamDialog

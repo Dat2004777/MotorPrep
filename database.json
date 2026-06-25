@@ -163,7 +163,7 @@
       "studentId": 2,
       "examId": 1,
       "examTitle": "Đề thi số 1",
-      "date": "2026-06-25T00:48:19.455Z",
+      "date": "2026-06-25T02:01:08.234Z",
       "score": 0,
       "totalQuestions": 3,
       "isPassed": false,
@@ -191,16 +191,16 @@
       "studentId": 2,
       "examId": 1,
       "examTitle": "Đề thi số 1",
-      "date": "2026-06-25T01:08:38.021Z",
-      "score": 1,
+      "date": "2026-06-25T02:01:14.607Z",
+      "score": 0,
       "totalQuestions": 3,
       "isPassed": false,
-      "failedOnCritical": false,
+      "failedOnCritical": true,
       "userAnswers": [
         {
           "questionId": 1,
-          "selected": "B",
-          "isCorrect": true
+          "selected": "",
+          "isCorrect": false
         },
         {
           "questionId": 2,

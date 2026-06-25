@@ -79,7 +79,9 @@ const HistoryPage = () => {
                     {historyResult(history.isPassed)}
                   </TableCell>
                   <TableCell className="text-center">
-                    <Button>Chi tiết</Button>
+                    <Link to={`/history/detail/${history.id}`}>
+                      <Button>Chi tiết</Button>
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}

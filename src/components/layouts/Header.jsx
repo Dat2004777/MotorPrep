@@ -40,7 +40,7 @@ const Header = () => {
         {user === null ? (
           <>
             <Link to={"/login"}>
-              <Button variant="outline">Đăng nhập</Button>
+              <Button variant="ghost">Đăng nhập</Button>
             </Link>
             <Link to={"/register"}>
               <Button>Đăng ký</Button>
