@@ -43,11 +43,27 @@ export default function useExam(usingPage) {
     [usingPage],
   );
 
+  const handleDeleteTest = useCallback(
+    async (testId) => {
+      try {
+        const res = await examService.deleteTest(testId);
+        if (res) {
+          toast.success("Xóa đề thi thành công");
+        }
+      } catch (error) {
+        console.log(`Lỗi khi xóa đề thi tại ${usingPage}: `, error);
+        toast.error("Lỗi khi xóa đề thi");
+      }
+    },
+    [usingPage],
+  );
+
   return {
     exams,
     currentExam,
     fetchExams,
     fetchExamById,
     handleSubmitExam,
+    handleDeleteTest,
   };
 }

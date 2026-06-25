@@ -9,6 +9,8 @@ import ExamTestPage from "./pages/user/ExamTestPage";
 import HistoryPage from "./pages/user/HistoryPage";
 import HistoryDetail from "./pages/user/HistoryDetail";
 import AdminTestsPage from "./pages/admin/test/AdminTestsPage";
+import AdminTestCreatePage from "./pages/admin/test/AdminTestCreatePage";
+import AdminTestUpdatePage from "./pages/admin/test/AdminTestUpdatePage";
 
 function App() {
   return (
@@ -34,6 +36,11 @@ function App() {
           element={<AdminQuestionUpdatePage />}
         />
         <Route path="/admin/tests" element={<AdminTestsPage />} />
+        <Route path="/admin/tests/create" element={<AdminTestCreatePage />} />
+        <Route
+          path="/admin/tests/update/:testId"
+          element={<AdminTestUpdatePage />}
+        />
       </Routes>
     </>
   );

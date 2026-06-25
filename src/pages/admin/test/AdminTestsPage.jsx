@@ -9,9 +9,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Link } from "react-router";
-import TestTable from "@/components/exam/TestTable";
+import TestTable from "@/components/test/TestTable";
+import useExam from "@/hooks/useExam";
+import { useEffect } from "react";
 
 const AdminTestsPage = () => {
+  const { handleDeleteTest } = useExam("AdminTestsPage");
+  const { exams, fetchExams } = useExam("AdminTestsPage");
+
+  useEffect(() => {
+    fetchExams();
+  }, [fetchExams]);
+
   return (
     <>
       <SidebarProvider>
@@ -39,7 +48,7 @@ const AdminTestsPage = () => {
           </div>
 
           <div className="mt-8">
-            <TestTable />
+            <TestTable exams={exams} onDeleteTestClick={handleDeleteTest} />
           </div>
         </main>
       </SidebarProvider>

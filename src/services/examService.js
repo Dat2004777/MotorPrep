@@ -20,6 +20,38 @@ const examService = {
       throw error;
     }
   },
+
+  createTest: async (examData) => {
+    const { title, questionIds } = examData;
+    try {
+      const res = await api.post("/exams", { title, questionIds });
+      return res.data;
+    } catch (error) {
+      console.log("Lỗi createTest tại examService: ", error);
+      throw error;
+    }
+  },
+
+  updateTest: async (testId, examData) => {
+    const { title, questionIds } = examData;
+    try {
+      const res = await api.put(`/exams/${testId}`, { title, questionIds });
+      return res.data;
+    } catch (error) {
+      console.log("Lỗi updateTest tại examService: ", error);
+      throw error;
+    }
+  },
+
+  deleteTest: async (testId) => {
+    try {
+      const res = await api.delete(`/exams/${testId}`);
+      return res.data;
+    } catch (error) {
+      console.log("Lỗi deleteTest tại examService: ", error);
+      throw error;
+    }
+  },
 };
 
 export default examService;

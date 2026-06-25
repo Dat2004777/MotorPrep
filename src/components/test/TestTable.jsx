@@ -9,23 +9,15 @@ import {
 } from "@/components/ui/table";
 import { Link } from "react-router";
 import { Button } from "../ui/button";
-import { useEffect } from "react";
-import useExam from "@/hooks/useExam";
 
-const TestTable = () => {
-  const { exams, fetchExams } = useExam("AdminTestsPage");
-
-  useEffect(() => {
-    fetchExams();
-  }, [fetchExams]);
-
+const TestTable = ({ exams, onDeleteTestClick }) => {
   return (
     <>
       <div className="rounded-xl border border-slate-200 bg-white shadow w-full p-8">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-15 uppercase">ID</TableHead>
+              <TableHead className="w-15 uppercase">STT</TableHead>
               <TableHead className="text-left uppercase">Tên đề thi</TableHead>
               <TableHead className="text-left uppercase">Câu hỏi</TableHead>
               <TableHead className="text-center uppercase">Hành động</TableHead>
@@ -33,9 +25,9 @@ const TestTable = () => {
           </TableHeader>
 
           <TableBody>
-            {exams.map((exam) => (
+            {exams.map((exam, index) => (
               <TableRow key={exam.id}>
-                <TableCell className="w-15">{exam.id}</TableCell>
+                <TableCell className="w-15">{index + 1}</TableCell>
                 <TableCell className="text-left whitespace-normal wrap-break-word">
                   {exam.title}
                 </TableCell>
@@ -43,10 +35,15 @@ const TestTable = () => {
                   {exam.questionIds.join(", ")}
                 </TableCell>
                 <TableCell className="flex gap-2 justify-center">
-                  <Link>
+                  <Link to={`/admin/tests/update/${exam.id}`}>
                     <Button variant="outline">Sửa</Button>
                   </Link>
-                  <Button variant="destructive">Xóa</Button>
+                  <Button
+                    variant="destructive"
+                    onClick={() => onDeleteTestClick(exam.id)}
+                  >
+                    Xóa
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

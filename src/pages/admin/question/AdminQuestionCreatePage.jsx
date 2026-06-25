@@ -172,10 +172,7 @@ const AdminQuestionCreatePage = () => {
             </div>
 
             <div className="flex justify-end gap-4 mt-8">
-              <Button
-                onClick={() => navigate("/admin/questions")}
-                variant="outline"
-              >
+              <Button onClick={() => navigate(-1)} variant="outline">
                 Hủy
               </Button>
               <Button onClick={handleSubmitQuestion} variant="default">
