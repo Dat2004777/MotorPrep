@@ -48,14 +48,14 @@ const HomePage = () => {
                 </TabsTrigger> */}
               </TabsList>
               <TabsContent value="exam-sets">
-                <div className="grid grid-cols-3 gap-8 mt-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">
                   {exams.map((exam) => (
                     <TestCard key={exam.id} exam={exam} />
                   ))}
                 </div>
               </TabsContent>
               <TabsContent value="other-exams">
-                <div className="grid grid-cols-3 gap-8 mt-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">
                   <TestCard isRandom={true} />
                 </div>
               </TabsContent>
