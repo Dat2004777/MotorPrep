@@ -18,9 +18,9 @@ export default function useExam(usingPage) {
   }, [usingPage]);
 
   const fetchExamById = useCallback(
-    async (id) => {
+    async (examId) => {
       try {
-        const res = await examService.getExamById(id);
+        const res = await examService.getExamById(examId);
         setCurrentExam(res);
       } catch (error) {
         console.log(`Lỗi fetchExamById tại ${usingPage}: `, error);

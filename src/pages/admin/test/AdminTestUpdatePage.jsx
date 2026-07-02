@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import useExam from "@/hooks/useExam";
 import useQuestion from "@/hooks/useQuestion";
 import examService from "@/services/examService";
 import { useEffect, useState } from "react";
@@ -20,14 +21,23 @@ const AdminTestUpdatePage = () => {
   const navigate = useNavigate();
   const { testId } = useParams();
 
-  const { questions, fetchQuestions } = useQuestion("AdminTestCreatePage");
+  const { questions, fetchQuestions } = useQuestion("AdminTestUpdatePage");
+  const { currentExam, fetchExamById } = useExam("AdminTestUpdatePage");
 
   const [examTitle, setExamTitle] = useState("");
   const [selectedQuestions, setSelectedQuestions] = useState([]);
 
   useEffect(() => {
     fetchQuestions();
-  }, [fetchQuestions]);
+    fetchExamById(testId);
+  }, [fetchQuestions, fetchExamById, testId]);
+
+  useEffect(() => {
+    if (currentExam) {
+      setExamTitle(currentExam?.title || "");
+      setSelectedQuestions(currentExam?.questionIds || []);
+    }
+  }, [currentExam]);
 
   const handleToggleSelectQuestion = (questionId) => {
     setSelectedQuestions((prev) => {
@@ -79,10 +89,10 @@ const AdminTestUpdatePage = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">
-                  Tạo đề thi mới
+                  Cập nhật đề thi
                 </CardTitle>
                 <CardDescription>
-                  Thêm đề thi mới để ôn tập GPLX
+                  Chỉnh sửa thông tin đề thi ôn tập GPLX
                 </CardDescription>
               </CardHeader>
             </Card>
