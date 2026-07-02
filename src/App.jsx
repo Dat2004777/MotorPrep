@@ -12,6 +12,7 @@ import AdminTestsPage from "./pages/admin/test/AdminTestsPage";
 import AdminTestCreatePage from "./pages/admin/test/AdminTestCreatePage";
 import AdminTestUpdatePage from "./pages/admin/test/AdminTestUpdatePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/*" element={<ErrorPage />} />
 
         <Route element={<ProtectedRoute allowedRoles={["user", "admin"]} />}>
           <Route path="/exam-test/:examId" element={<ExamTestPage />} />
