@@ -46,13 +46,24 @@ export default function useExam(usingPage) {
   const handleDeleteTest = useCallback(
     async (testId) => {
       try {
-        const res = await examService.deleteTest(testId);
-        if (res) {
-          toast.success("Xóa đề thi thành công");
-        }
+        await examService.deleteTest(testId);
+        toast.success("Xóa đề thi thành công");
       } catch (error) {
         console.log(`Lỗi khi xóa đề thi tại ${usingPage}: `, error);
         toast.error("Lỗi khi xóa đề thi");
+      }
+    },
+    [usingPage],
+  );
+
+  const handleUpdateTest = useCallback(
+    async (testId, examData) => {
+      try {
+        await examService.updateTest(testId, examData);
+        toast.success("Cập nhật đề thi thành công");
+      } catch (error) {
+        console.log(`Lỗi khi cập nhật đề thi tại ${usingPage}: `, error);
+        toast.error("Lỗi cập nhật đề thi");
       }
     },
     [usingPage],
@@ -65,5 +76,6 @@ export default function useExam(usingPage) {
     fetchExamById,
     handleSubmitExam,
     handleDeleteTest,
+    handleUpdateTest,
   };
 }

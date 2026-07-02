@@ -12,7 +12,6 @@ import {
 import { SidebarProvider } from "@/components/ui/sidebar";
 import useExam from "@/hooks/useExam";
 import useQuestion from "@/hooks/useQuestion";
-import examService from "@/services/examService";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
@@ -22,7 +21,9 @@ const AdminTestUpdatePage = () => {
   const { testId } = useParams();
 
   const { questions, fetchQuestions } = useQuestion("AdminTestUpdatePage");
-  const { currentExam, fetchExamById } = useExam("AdminTestUpdatePage");
+  const { currentExam, fetchExamById, handleUpdateTest } = useExam(
+    "AdminTestUpdatePage",
+  );
 
   const [examTitle, setExamTitle] = useState("");
   const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -69,14 +70,9 @@ const AdminTestUpdatePage = () => {
       questionIds: selectedQuestions,
     };
 
-    try {
-      await examService.updateTest(testId, newExamData);
-      toast.success("Cập nhật đề thi thành công");
-      navigate("/admin/tests");
-    } catch (error) {
-      console.log("Lỗi khi cập nhật đề thi tại AdminTestUpdatePage: ", error);
-      toast.error("Lỗi cập nhật đề thi");
-    }
+    handleUpdateTest(testId, newExamData);
+
+    navigate("/admin/tests");
   };
 
   return (

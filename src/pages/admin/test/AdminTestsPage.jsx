@@ -14,8 +14,7 @@ import useExam from "@/hooks/useExam";
 import { useEffect } from "react";
 
 const AdminTestsPage = () => {
-  const { handleDeleteTest } = useExam("AdminTestsPage");
-  const { exams, fetchExams } = useExam("AdminTestsPage");
+  const { exams, fetchExams, handleDeleteTest } = useExam("AdminTestsPage");
 
   useEffect(() => {
     fetchExams();
