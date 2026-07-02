@@ -11,6 +11,7 @@ import HistoryDetail from "./pages/user/HistoryDetailPage";
 import AdminTestsPage from "./pages/admin/test/AdminTestsPage";
 import AdminTestCreatePage from "./pages/admin/test/AdminTestCreatePage";
 import AdminTestUpdatePage from "./pages/admin/test/AdminTestUpdatePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -21,26 +22,32 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        <Route path="/exam-test/:examId" element={<ExamTestPage />} />
+        <Route element={<ProtectedRoute allowedRoles={["user", "admin"]} />}>
+          <Route path="/exam-test/:examId" element={<ExamTestPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route
+            path="/history/detail/:historyId"
+            element={<HistoryDetail />}
+          />
+        </Route>
 
-        <Route path="/history" element={<HistoryPage />} />
-        <Route path="/history/detail/:historyId" element={<HistoryDetail />} />
-
-        <Route path="/admin/questions" element={<AdminQuestionsPage />} />
-        <Route
-          path="/admin/questions/create"
-          element={<AdminQuestionCreatePage />}
-        />
-        <Route
-          path="/admin/questions/update/:questionId"
-          element={<AdminQuestionUpdatePage />}
-        />
-        <Route path="/admin/tests" element={<AdminTestsPage />} />
-        <Route path="/admin/tests/create" element={<AdminTestCreatePage />} />
-        <Route
-          path="/admin/tests/update/:testId"
-          element={<AdminTestUpdatePage />}
-        />
+        <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+          <Route path="/admin/questions" element={<AdminQuestionsPage />} />
+          <Route
+            path="/admin/questions/create"
+            element={<AdminQuestionCreatePage />}
+          />
+          <Route
+            path="/admin/questions/update/:questionId"
+            element={<AdminQuestionUpdatePage />}
+          />
+          <Route path="/admin/tests" element={<AdminTestsPage />} />
+          <Route path="/admin/tests/create" element={<AdminTestCreatePage />} />
+          <Route
+            path="/admin/tests/update/:testId"
+            element={<AdminTestUpdatePage />}
+          />
+        </Route>
       </Routes>
     </>
   );

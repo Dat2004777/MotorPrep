@@ -15,14 +15,24 @@ const User = () => {
 
   return (
     <>
-      <Link to={"/admin/questions"}>
+      {user.role === "admin" ? (
+        <Link to={"/admin/questions"}>
+          <Button variant="ghost">
+            <UserIcon className="my-auto" />
+            <p className="my-auto">
+              {user.name} ({user.role})
+            </p>
+          </Button>
+        </Link>
+      ) : (
         <Button variant="ghost">
           <UserIcon className="my-auto" />
           <p className="my-auto">
             {user.name} ({user.role})
           </p>
         </Button>
-      </Link>
+      )}
+
       <Button variant="destructive" onClick={handleLogoutClick}>
         Đăng xuất
       </Button>
