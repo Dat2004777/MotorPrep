@@ -111,7 +111,11 @@ const ExamTestPage = () => {
       if (!isCorrect && question.isCritical) hasFailedCritical = true;
 
       userAnswersLog.push({
-        questionId: question.id,
+        qId: question.id,
+        questionText: question.questionText,
+        options: question.options,
+        correctOption: question.correctOption,
+        isCritical: question.isCritical,
         selected: userAnswer || "",
         isCorrect: isCorrect,
       });
@@ -121,7 +125,7 @@ const ExamTestPage = () => {
 
     const historyData = {
       studentId: user.id,
-      examId: examId === "random" ? "random" : Number(examId),
+      examIdRef: examId === "random" ? "random" : Number(examId),
       examTitle: examId === "random" ? "Đề thi ngẫu nhiên" : currentExam.title,
       date: new Date().toISOString(),
       score: correctCount,

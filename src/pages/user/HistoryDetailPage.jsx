@@ -25,15 +25,46 @@ const HistoryDetail = () => {
     fetchQuestions();
   }, [fetchQuestions, fetchHistoryById, historyId]);
 
-  const targetQuestionIds =
-    currentHistory?.userAnswers?.map((answer) => answer.questionId) || [];
+  const hasSnapshot =
+    currentHistory?.userAnswers?.[0]?.questionText !== undefined;
 
-  const examQuestions =
-    questions.length > 0 && targetQuestionIds.length > 0
-      ? questions.filter((question) => targetQuestionIds.includes(question.id))
-      : [];
+  let examQuestions = [];
+  if (hasSnapshot) {
+    examQuestions =
+      currentHistory?.userAnswers?.map((answer) => ({
+        id: answer.qId,
+        questionText: answer.questionText,
+        options: answer.options,
+        correctOption: answer.correctOption,
+        isCritical: answer.isCritical,
+        selected: answer.selected,
+        isCorrect: answer.isCorrect,
+      })) || [];
+  } else {
+    const targetQuestionIds =
+      currentHistory?.userAnswers?.map((answer) => answer.questionId) || [];
+    examQuestions =
+      questions.length > 0 && targetQuestionIds.length > 0
+        ? questions
+            .filter((question) => targetQuestionIds.includes(question.id))
+            .map((question) => {
+              const answer = currentHistory.userAnswers.find(
+                (ans) => ans.questionId === question.id,
+              );
+              return {
+                id: question.id,
+                questionText: question.questionText,
+                options: question.options,
+                correctOption: question.correctOption,
+                isCritical: question.isCritical,
+                selected: answer?.selected || "",
+                isCorrect: answer?.isCorrect || false,
+              };
+            })
+        : [];
+  }
 
-  if (examQuestions.length === 0) {
+  if (!currentHistory || (currentHistory && !hasSnapshot && questions.length === 0)) {
     return (
       <div className="flex h-screen items-center justify-center text-muted-foreground">
         Đang tải chi tiết bài làm...
@@ -56,11 +87,7 @@ const HistoryDetail = () => {
 
         <div className="flex flex-col gap-8 my-8">
           {examQuestions.map((question, index) => {
-            const historyLogOfQuestion = currentHistory?.userAnswers?.find(
-              (answer) => answer.questionId === question.id,
-            );
-
-            const userSelectedAnswer = historyLogOfQuestion?.selected || "";
+            const userSelectedAnswer = question.selected || "";
 
             return (
               <Card key={question.id} className="w-full shadow-sm">
@@ -70,7 +97,7 @@ const HistoryDetail = () => {
                       Câu hỏi {index + 1}/{examQuestions.length}
                     </span>
 
-                    {historyLogOfQuestion?.isCorrect ? (
+                    {question.isCorrect ? (
                       <Badge variant="secondary" className="font-bold">
                         Đúng
                       </Badge>

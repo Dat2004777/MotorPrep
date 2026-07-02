@@ -4,7 +4,7 @@ const historyService = {
   saveHistory: async (historyData) => {
     const {
       studentId,
-      examId,
+      examIdRef,
       examTitle,
       date,
       score,
@@ -16,7 +16,7 @@ const historyService = {
     try {
       const res = await api.post("/histories/", {
         studentId,
-        examId,
+        examIdRef,
         examTitle,
         date,
         score,

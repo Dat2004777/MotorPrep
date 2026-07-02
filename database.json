@@ -415,190 +415,479 @@
     {
       "title": "Đề thi số 2",
       "questionIds": [
-        17,
-        19,
-        18,
-        21,
-        22,
-        23,
-        28,
-        27,
-        26,
-        25
+        10,
+        8,
+        6,
+        7,
+        9,
+        5,
+        4,
+        3,
+        1,
+        2
       ],
       "id": 2
     }
   ],
   "histories": [
     {
-      "id": 1,
       "studentId": 1,
-      "examId": 1,
-      "examTitle": "Đề thi số 1",
-      "date": "2026-06-19T14:30:00Z",
-      "score": 7,
-      "totalQuestions": 3,
-      "isPassed": true,
-      "failedOnCritical": false,
-      "userAnswers": [
-        {
-          "questionId": 1,
-          "selected": "B",
-          "isCorrect": true
-        },
-        {
-          "questionId": 2,
-          "selected": "C",
-          "isCorrect": false
-        },
-        {
-          "questionId": 3,
-          "selected": "C",
-          "isCorrect": true
-        }
-      ]
-    },
-    {
-      "studentId": 2,
-      "examId": 1,
-      "examTitle": "Đề thi số 1",
-      "date": "2026-06-25T00:44:59.724Z",
-      "score": 0,
-      "totalQuestions": 3,
-      "isPassed": false,
-      "failedOnCritical": true,
-      "userAnswers": [
-        {
-          "questionId": 1,
-          "selected": "A",
-          "isCorrect": false
-        },
-        {
-          "questionId": 2,
-          "selected": "",
-          "isCorrect": false
-        },
-        {
-          "questionId": 3,
-          "selected": "",
-          "isCorrect": false
-        }
-      ],
-      "id": 2
-    },
-    {
-      "studentId": 2,
-      "examId": 1,
-      "examTitle": "Đề thi số 1",
-      "date": "2026-06-25T09:03:59.742Z",
-      "score": 0,
-      "totalQuestions": 3,
-      "isPassed": false,
-      "failedOnCritical": true,
-      "userAnswers": [
-        {
-          "questionId": 1,
-          "selected": "",
-          "isCorrect": false
-        },
-        {
-          "questionId": 2,
-          "selected": "",
-          "isCorrect": false
-        },
-        {
-          "questionId": 3,
-          "selected": "",
-          "isCorrect": false
-        }
-      ],
-      "id": 3
-    },
-    {
-      "studentId": 2,
-      "examId": 2,
+      "examIdRef": 2,
       "examTitle": "Đề thi số 2",
-      "date": "2026-06-26T02:21:31.767Z",
-      "score": 0,
-      "totalQuestions": 2,
-      "isPassed": false,
-      "failedOnCritical": false,
-      "userAnswers": [
-        {
-          "questionId": 2,
-          "selected": "",
-          "isCorrect": false
-        },
-        {
-          "questionId": 3,
-          "selected": "",
-          "isCorrect": false
-        }
-      ],
-      "id": 4
-    },
-    {
-      "studentId": 2,
-      "examId": 2,
-      "examTitle": "Đề thi số 2",
-      "date": "2026-07-02T12:21:15.979Z",
-      "score": 5,
+      "date": "2026-07-02T12:46:01.442Z",
+      "score": 1,
       "totalQuestions": 10,
       "isPassed": false,
       "failedOnCritical": true,
       "userAnswers": [
         {
-          "questionId": 17,
-          "selected": "C",
-          "isCorrect": false
-        },
-        {
-          "questionId": 18,
+          "qId": 17,
+          "questionText": "Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị tai nạn giao thông có được phép không?",
+          "options": {
+            "A": "Được phép.",
+            "B": "Không được phép.",
+            "C": "Được phép tùy thuộc địa hình.",
+            "D": "Chỉ được phép nếu đường vắng người."
+          },
+          "correctOption": "B",
+          "isCritical": true,
           "selected": "B",
           "isCorrect": true
         },
         {
-          "questionId": 19,
-          "selected": "D",
+          "qId": 18,
+          "questionText": "Biển nào chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Không biển nào."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
           "isCorrect": false
         },
         {
-          "questionId": 21,
-          "selected": "B",
-          "isCorrect": true
-        },
-        {
-          "questionId": 22,
-          "selected": "D",
+          "qId": 19,
+          "questionText": "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
+          "options": {
+            "A": "Xe khách, xe con.",
+            "B": "Xe tải, xe mô tô.",
+            "C": "Tất cả các loại xe trên.",
+            "D": "Không xe nào chấp hành đúng."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
           "isCorrect": false
         },
         {
-          "questionId": 23,
-          "selected": "C",
+          "qId": 21,
+          "questionText": "Biển nào báo hiệu 'Cầu hẹp'?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Biển 1 và 3."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
           "isCorrect": false
         },
         {
-          "questionId": 25,
-          "selected": "B",
-          "isCorrect": true
-        },
-        {
-          "questionId": 26,
-          "selected": "C",
-          "isCorrect": true
-        },
-        {
-          "questionId": 27,
-          "selected": "D",
+          "qId": 22,
+          "questionText": "Xe con quay đầu đi ngược lại như hình vẽ có vi phạm quy tắc giao thông không?",
+          "options": {
+            "A": "Không vi phạm.",
+            "B": "Vi phạm.",
+            "C": "Tùy thuộc vào thời gian quay đầu.",
+            "D": "Được quay đầu nếu bật đèn khẩn cấp."
+          },
+          "correctOption": "B",
+          "isCritical": true,
+          "selected": "",
           "isCorrect": false
         },
         {
-          "questionId": 28,
-          "selected": "C",
-          "isCorrect": true
+          "qId": 23,
+          "questionText": "Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
+          "options": {
+            "A": "Quan sát gương, giảm tốc độ, ra tín hiệu chuyển hướng và chỉ chuyển hướng khi không gây trở ngại.",
+            "B": "Giảm tốc độ và cho xe chuyển hướng ngay lập tức.",
+            "C": "Quan sát phía trước, tăng tốc độ để nhanh chóng chuyển hướng.",
+            "D": "Bật tín hiệu rẽ và chuyển hướng ngay khi nghe thấy còi xe khác."
+          },
+          "correctOption": "A",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 25,
+          "questionText": "Xe tải kéo xe mô tô ba bánh như hình vẽ có đúng quy tắc giao thông không?",
+          "options": {
+            "A": "Đúng.",
+            "B": "Không đúng.",
+            "C": "Chỉ đúng khi có dây xích bảo vệ chắc chắn.",
+            "D": "Đúng nếu xe mô tô bị hỏng hệ thống phanh."
+          },
+          "correctOption": "B",
+          "isCritical": true,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 26,
+          "questionText": "Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
+          "options": {
+            "A": "Nơi đường hẹp chỉ đủ cho một xe chạy, xe nào gần chỗ tránh hơn phải vào vị trí tránh.",
+            "B": "Xe xuống dốc phải nhường đường cho xe đang lên dốc.",
+            "C": "Cả hai phương án A và B đều đúng.",
+            "D": "Xe to hơn phải nhường đường cho xe nhỏ hơn."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 27,
+          "questionText": "Biển nào báo hiệu kết thúc đường đôi?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Biển 1 và 2."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 28,
+          "questionText": "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông đường bộ?",
+          "options": {
+            "A": "Xe khách, xe tải, xe con.",
+            "B": "Xe tải, xe khách, xe con.",
+            "C": "Xe con, xe khách, xe tải.",
+            "D": "Xe con, xe tải, xe khách."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
         }
       ],
-      "id": 5
+      "id": 6
+    },
+    {
+      "studentId": 2,
+      "examIdRef": 2,
+      "examTitle": "Đề thi số 2",
+      "date": "2026-07-02T12:49:01.030Z",
+      "score": 1,
+      "totalQuestions": 10,
+      "isPassed": false,
+      "failedOnCritical": true,
+      "userAnswers": [
+        {
+          "qId": 3,
+          "questionText": "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?",
+          "options": {
+            "A": "Xe con.",
+            "B": "Xe mô tô.",
+            "C": "Cả hai xe.",
+            "D": "Không xe nào vi phạm."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "C",
+          "isCorrect": true
+        },
+        {
+          "qId": 4,
+          "questionText": "Cuộc đua xe chỉ được thực hiện khi nào?",
+          "options": {
+            "A": "Diễn ra trên đường phố không có người qua lại.",
+            "B": "Được người dân ủng hộ.",
+            "C": "Được cơ quan có thẩm quyền cấp phép.",
+            "D": "Do các câu lạc bộ tự đứng ra tổ chức."
+          },
+          "correctOption": "C",
+          "isCritical": true,
+          "selected": "D",
+          "isCorrect": false
+        },
+        {
+          "qId": 5,
+          "questionText": "Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép buông cả hai tay khi đang tham gia giao thông?",
+          "options": {
+            "A": "Không được phép.",
+            "B": "Được phép nếu bảo đảm an toàn.",
+            "C": "Được phép tùy từng trường hợp đoạn đường vắng.",
+            "D": "Chỉ người có kinh nghiệm mới được phép."
+          },
+          "correctOption": "A",
+          "isCritical": true,
+          "selected": "C",
+          "isCorrect": false
+        },
+        {
+          "qId": 6,
+          "questionText": "Khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
+          "options": {
+            "A": "Biển 1 và 2.",
+            "B": "Biển 1 và 3.",
+            "C": "Biển 2 và 3.",
+            "D": "Cả ba biển."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 7,
+          "questionText": "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
+          "options": {
+            "A": "Xe công an, xe quân sự, xe con.",
+            "B": "Xe quân sự, xe công an, xe con.",
+            "C": "Xe công an, xe con, xe quân sự.",
+            "D": "Xe con, xe quân sự, xe công an."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 8,
+          "questionText": "Người lái xe không được quay đầu xe ở những khu vực nào sau đây?",
+          "options": {
+            "A": "Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu.",
+            "B": "Ở nơi đường bộ giao nhau cùng mức với đường sắt, gầm cầu vượt, trong hầm đường bộ.",
+            "C": "Cả hai phương án A và B đều đúng.",
+            "D": "Ở những nơi đường quốc lộ có dải phân cách giữa."
+          },
+          "correctOption": "C",
+          "isCritical": true,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 9,
+          "questionText": "Biển nào báo hiệu 'Giao nhau có tín hiệu đèn'?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Cả ba biển."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 10,
+          "questionText": "Xe nào được quyền đi trước trong trường hợp này?",
+          "options": {
+            "A": "Xe cứu thương.",
+            "B": "Xe cứu hỏa.",
+            "C": "Xe của quân đội.",
+            "D": "Xe công an."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 11,
+          "questionText": "Người đủ 16 tuổi đến dưới 18 tuổi được điều khiển loại xe nào sau đây?",
+          "options": {
+            "A": "Xe mô tô hai bánh có dung tích xi-lanh từ 50 cm3 trở lên.",
+            "B": "Xe gắn máy có dung tích xi-lanh dưới 50 cm3.",
+            "C": "Xe ô tô tải dưới 3,5 tấn.",
+            "D": "Tất cả các loại xe kể trên."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 12,
+          "questionText": "Biển nào báo hiệu 'Đường cấm'?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Biển 1 và 2."
+          },
+          "correctOption": "A",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        }
+      ],
+      "id": 7
+    },
+    {
+      "studentId": 2,
+      "examIdRef": "random",
+      "examTitle": "Đề thi ngẫu nhiên",
+      "date": "2026-07-02T12:52:27.651Z",
+      "score": 0,
+      "totalQuestions": 10,
+      "isPassed": false,
+      "failedOnCritical": true,
+      "userAnswers": [
+        {
+          "qId": 15,
+          "questionText": "Biển nào dưới đây cấm xe taxi mà không cấm các phương tiện khác?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Cả ba biển."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "A",
+          "isCorrect": false
+        },
+        {
+          "qId": 5,
+          "questionText": "Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép buông cả hai tay khi đang tham gia giao thông?",
+          "options": {
+            "A": "Không được phép.",
+            "B": "Được phép nếu bảo đảm an toàn.",
+            "C": "Được phép tùy từng trường hợp đoạn đường vắng.",
+            "D": "Chỉ người có kinh nghiệm mới được phép."
+          },
+          "correctOption": "A",
+          "isCritical": true,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 26,
+          "questionText": "Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
+          "options": {
+            "A": "Nơi đường hẹp chỉ đủ cho một xe chạy, xe nào gần chỗ tránh hơn phải vào vị trí tránh.",
+            "B": "Xe xuống dốc phải nhường đường cho xe đang lên dốc.",
+            "C": "Cả hai phương án A và B đều đúng.",
+            "D": "Xe to hơn phải nhường đường cho xe nhỏ hơn."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 20,
+          "questionText": "Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) trên đường bộ là bao nhiêu?",
+          "options": {
+            "A": "50 km/h.",
+            "B": "40 km/h.",
+            "C": "60 km/h.",
+            "D": "30 km/h."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 10,
+          "questionText": "Xe nào được quyền đi trước trong trường hợp này?",
+          "options": {
+            "A": "Xe cứu thương.",
+            "B": "Xe cứu hỏa.",
+            "C": "Xe của quân đội.",
+            "D": "Xe công an."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 21,
+          "questionText": "Biển nào báo hiệu 'Cầu hẹp'?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Biển 1 và 3."
+          },
+          "correctOption": "B",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 13,
+          "questionText": "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
+          "options": {
+            "A": "Cả ba hướng.",
+            "B": "Hướng 1 và 2.",
+            "C": "Hướng 1 và 3.",
+            "D": "Hướng 2 và 3."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 9,
+          "questionText": "Biển nào báo hiệu 'Giao nhau có tín hiệu đèn'?",
+          "options": {
+            "A": "Biển 1.",
+            "B": "Biển 2.",
+            "C": "Biển 3.",
+            "D": "Cả ba biển."
+          },
+          "correctOption": "C",
+          "isCritical": false,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 25,
+          "questionText": "Xe tải kéo xe mô tô ba bánh như hình vẽ có đúng quy tắc giao thông không?",
+          "options": {
+            "A": "Đúng.",
+            "B": "Không đúng.",
+            "C": "Chỉ đúng khi có dây xích bảo vệ chắc chắn.",
+            "D": "Đúng nếu xe mô tô bị hỏng hệ thống phanh."
+          },
+          "correctOption": "B",
+          "isCritical": true,
+          "selected": "",
+          "isCorrect": false
+        },
+        {
+          "qId": 4,
+          "questionText": "Cuộc đua xe chỉ được thực hiện khi nào?",
+          "options": {
+            "A": "Diễn ra trên đường phố không có người qua lại.",
+            "B": "Được người dân ủng hộ.",
+            "C": "Được cơ quan có thẩm quyền cấp phép.",
+            "D": "Do các câu lạc bộ tự đứng ra tổ chức."
+          },
+          "correctOption": "C",
+          "isCritical": true,
+          "selected": "",
+          "isCorrect": false
+        }
+      ],
+      "id": 8
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
