@@ -3,3 +3,5 @@ export const categoryData = {
   signs: "Biển báo",
   shapes: "Sa hình",
 };
+
+export const itemsPageLimit = 5;

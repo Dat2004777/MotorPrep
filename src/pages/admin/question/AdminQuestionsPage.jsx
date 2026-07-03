@@ -12,10 +12,21 @@ import { Plus } from "lucide-react";
 import { Link } from "react-router";
 import QuestionTable from "@/components/question/QuestionTable";
 import useQuestion from "@/hooks/useQuestion";
+import CommonPagination from "@/components/CommonPagination";
+import usePagination from "@/hooks/usePagination";
 
 const AdminQuestionsPage = () => {
   const { questions, fetchQuestions, handleDeleteQuestion } =
     useQuestion("AdminQuestionsPage");
+
+  const {
+    page,
+    totalPages,
+    visibleData,
+    handlePrev,
+    handleNext,
+    handlePageChange,
+  } = usePagination(questions);
 
   useEffect(() => {
     fetchQuestions();
@@ -51,8 +62,18 @@ const AdminQuestionsPage = () => {
 
           <div className="mt-8">
             <QuestionTable
-              questions={questions}
+              questions={visibleData}
               onDeleteClick={handleDeleteQuestion}
+            />
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <CommonPagination
+              page={page}
+              totalPages={totalPages}
+              onClickPrev={handlePrev}
+              onClickNext={handleNext}
+              onClickPageChange={handlePageChange}
             />
           </div>
         </main>
