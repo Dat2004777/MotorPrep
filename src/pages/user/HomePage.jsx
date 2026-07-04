@@ -27,6 +27,8 @@ const HomePage = () => {
     fetchExams();
   }, [fetchExams]);
 
+  const totalExams = exams.length || 0;
+
   return (
     <>
       <Header />
@@ -53,11 +55,12 @@ const HomePage = () => {
               <TabsList className="flex w-full">
                 <TabsTrigger value="exam-sets">Đề Thi Theo Bộ</TabsTrigger>
                 <TabsTrigger value="other-exams">Đề Thi Khác</TabsTrigger>
-                {/* <TabsTrigger value="categories-exams">
-                  Học Theo Danh Mục
-                </TabsTrigger> */}
               </TabsList>
               <TabsContent value="exam-sets">
+                <div className="mt-4 font-semibold text-muted-foreground">
+                  <p>Hiện tại đang có: {totalExams} bộ đề thi</p>
+                </div>
+
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">
                   {visibleData.map((exam) => (
                     <TestCard key={exam.id} exam={exam} />
@@ -79,7 +82,6 @@ const HomePage = () => {
                   <TestCard isRandom={true} />
                 </div>
               </TabsContent>
-              {/* <TabsContent value="categories-exams">Category</TabsContent> */}
             </Tabs>
           </div>
         </div>

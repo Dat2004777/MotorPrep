@@ -139,7 +139,7 @@ const ExamTestPage = () => {
       const res = await submitExam(historyData);
       if (res) {
         toast.success("Nộp bài thành công");
-        navigate("/");
+        navigate("/history");
       }
     } catch (error) {
       console.log("Lỗi khi nộp bài tại ExamTestPage: ", error);
