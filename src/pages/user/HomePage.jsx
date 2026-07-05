@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Empty } from "@/components/ui/empty";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useExam from "@/hooks/useExam";
 import usePagination from "@/hooks/usePagination";
@@ -57,25 +58,31 @@ const HomePage = () => {
                 <TabsTrigger value="other-exams">Đề Thi Khác</TabsTrigger>
               </TabsList>
               <TabsContent value="exam-sets">
-                <div className="mt-4 font-semibold text-muted-foreground">
-                  <p>Hiện tại đang có: {totalExams} bộ đề thi</p>
-                </div>
+                {exams.length === 0 ? (
+                  <Empty>Không có bộ đề thi</Empty>
+                ) : (
+                  <>
+                    <div className="mt-4 font-semibold text-muted-foreground">
+                      <p>Hiện tại đang có: {totalExams} bộ đề thi</p>
+                    </div>
 
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">
-                  {visibleData.map((exam) => (
-                    <TestCard key={exam.id} exam={exam} />
-                  ))}
-                </div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">
+                      {visibleData.map((exam) => (
+                        <TestCard key={exam.id} exam={exam} />
+                      ))}
+                    </div>
 
-                <div className="mt-8 flex justify-center">
-                  <CommonPagination
-                    page={page}
-                    totalPages={totalPages}
-                    onClickPrev={handlePrev}
-                    onClickNext={handleNext}
-                    onClickPageChange={handlePageChange}
-                  />
-                </div>
+                    <div className="mt-8 flex justify-center">
+                      <CommonPagination
+                        page={page}
+                        totalPages={totalPages}
+                        onClickPrev={handlePrev}
+                        onClickNext={handleNext}
+                        onClickPageChange={handlePageChange}
+                      />
+                    </div>
+                  </>
+                )}
               </TabsContent>
               <TabsContent value="other-exams">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-4">

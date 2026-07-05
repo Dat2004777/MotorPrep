@@ -33,6 +33,7 @@ import { historyDate, historyResult } from "@/lib/utils";
 import { useEffect } from "react";
 import { Link } from "react-router";
 import { historyFilterData, itemsPageLimit } from "@/lib/data";
+import { Empty } from "@/components/ui/empty";
 
 const HistoryPage = () => {
   const { user } = useAuth();
@@ -200,17 +201,23 @@ const HistoryPage = () => {
                   colSpan={6}
                   className="p-4 text-sm text-muted-foreground font-normal"
                 >
-                  Hiển thị{" "}
-                  {filteredAndSortedHistories.length > 0
-                    ? (page - 1) * itemsPageLimit + 1
-                    : 0}
-                  -
-                  {Math.min(
-                    page * itemsPageLimit,
-                    filteredAndSortedHistories.length,
-                  )}{" "}
-                  trên tổng số {filteredAndSortedHistories.length} lịch sử làm
-                  bài
+                  {filteredAndSortedHistories.length === 0 ? (
+                    <Empty>Không có lịch sử làm bài</Empty>
+                  ) : (
+                    <>
+                      Hiển thị{" "}
+                      {filteredAndSortedHistories.length > 0
+                        ? (page - 1) * itemsPageLimit + 1
+                        : 0}
+                      -
+                      {Math.min(
+                        page * itemsPageLimit,
+                        filteredAndSortedHistories.length,
+                      )}{" "}
+                      trên tổng số {filteredAndSortedHistories.length} lịch sử
+                      làm bài
+                    </>
+                  )}
                 </TableCell>
               </TableRow>
             </TableFooter>

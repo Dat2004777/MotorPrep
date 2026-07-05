@@ -10,10 +10,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import useExam from "@/hooks/useExam";
 import usePagination from "@/hooks/usePagination";
 import useQuestion from "@/hooks/useQuestion";
+import useQuestionFilter from "@/hooks/useQuestionFilter";
+import { categoryData } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
@@ -27,17 +38,29 @@ const AdminTestUpdatePage = () => {
     "AdminTestUpdatePage",
   );
 
+  const [examTitle, setExamTitle] = useState("");
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
+
+  const {
+    searchTerm,
+    setSearchTerm,
+    categoryFilter,
+    setCategoryFilter,
+    typeFilter,
+    setTypeFilter,
+    showSelectedOnly,
+    setShowSelectedOnly,
+    filteredQuestions,
+  } = useQuestionFilter(questions, selectedQuestions);
   const {
     page,
     totalPages,
     visibleData,
+    setPage,
     handlePrev,
     handleNext,
     handlePageChange,
-  } = usePagination(questions);
-
-  const [examTitle, setExamTitle] = useState("");
-  const [selectedQuestions, setSelectedQuestions] = useState([]);
+  } = usePagination(filteredQuestions);
 
   useEffect(() => {
     fetchQuestions();
@@ -50,6 +73,12 @@ const AdminTestUpdatePage = () => {
       setSelectedQuestions(currentExam?.questionIds || []);
     }
   }, [currentExam]);
+
+  useEffect(() => {
+    if (setPage) {
+      setPage(1);
+    }
+  }, [searchTerm, categoryFilter, typeFilter, showSelectedOnly, setPage]);
 
   const handleToggleSelectQuestion = (questionId) => {
     setSelectedQuestions((prev) => {
@@ -120,6 +149,86 @@ const AdminTestUpdatePage = () => {
                         />
                       </div>
                     </CardContent>
+                  </Card>
+                </div>
+
+                <div>
+                  <Card>
+                    <CardHeader>
+                      <CardContent className="flex justify-between">
+                        <div className="flex gap-4">
+                          <div className="flex gap-2">
+                            <p className="flex my-auto">Nội dung câu hỏi: </p>
+                            <div>
+                              <Input
+                                placeholder="Tìm kiếm..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                              />
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <p className="flex my-auto">Danh mục: </p>
+                            <div>
+                              <Select
+                                value={categoryFilter}
+                                onValueChange={setCategoryFilter}
+                              >
+                                <SelectTrigger className="w-45">
+                                  <SelectValue placeholder="Chọn danh mục" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value={categoryData.all}>
+                                    {categoryData.all}
+                                  </SelectItem>
+                                  <SelectItem value={categoryData.concepts}>
+                                    {categoryData.concepts}
+                                  </SelectItem>
+                                  <SelectItem value={categoryData.signs}>
+                                    {categoryData.signs}
+                                  </SelectItem>
+                                  <SelectItem value={categoryData.shapes}>
+                                    {categoryData.shapes}
+                                  </SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <p className="flex my-auto">Phân loại: </p>
+                            <div>
+                              <Select
+                                value={typeFilter}
+                                onValueChange={setTypeFilter}
+                              >
+                                <SelectTrigger className="w-45">
+                                  <SelectValue placeholder="Chọn loại câu hỏi" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value={categoryData.all}>
+                                    {categoryData.all}
+                                  </SelectItem>
+                                  <SelectItem value={categoryData.isCritical}>
+                                    {categoryData.isCritical}
+                                  </SelectItem>
+                                  <SelectItem value={categoryData.normal}>
+                                    {categoryData.normal}
+                                  </SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <p className="flex my-auto">Đã chọn: </p>
+                            <Checkbox
+                              className="flex my-auto"
+                              checked={showSelectedOnly}
+                              onCheckedChange={setShowSelectedOnly}
+                            />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </CardHeader>
                   </Card>
                 </div>
 

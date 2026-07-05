@@ -1,7 +1,10 @@
 export const categoryData = {
+  all: "Tất cả",
   concepts: "Khái niệm",
   signs: "Biển báo",
   shapes: "Sa hình",
+  isCritical: "Điểm liệt",
+  normal: "Thường",
 };
 
 export const historyFilterData = {
