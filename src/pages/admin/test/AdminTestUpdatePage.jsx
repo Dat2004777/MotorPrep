@@ -24,7 +24,7 @@ import useExam from "@/hooks/useExam";
 import usePagination from "@/hooks/usePagination";
 import useQuestion from "@/hooks/useQuestion";
 import useQuestionFilter from "@/hooks/useQuestionFilter";
-import { categoryData } from "@/lib/data";
+import { categoryData, itemsPageLimit } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "sonner";
@@ -237,6 +237,8 @@ const AdminTestUpdatePage = () => {
                   isSelectionMode={true}
                   selectedIds={selectedQuestions}
                   onToggleSelect={handleToggleSelectQuestion}
+                  startIndex={(page - 1) * itemsPageLimit}
+                  totalQuestions={filteredQuestions.length}
                 />
               </div>
             </div>

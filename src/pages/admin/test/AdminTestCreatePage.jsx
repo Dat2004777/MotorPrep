@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -22,7 +23,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import usePagination from "@/hooks/usePagination";
 import useQuestion from "@/hooks/useQuestion";
 import useQuestionFilter from "@/hooks/useQuestionFilter";
-import { categoryData } from "@/lib/data";
+import { categoryData, itemsPageLimit } from "@/lib/data";
 import examService from "@/services/examService";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -218,6 +219,8 @@ const AdminTestCreatePage = () => {
                   isSelectionMode={true}
                   selectedIds={selectedQuestions}
                   onToggleSelect={handleToggleSelectQuestion}
+                  startIndex={(page - 1) * itemsPageLimit}
+                  totalQuestions={filteredQuestions.length}
                 />
               </div>
             </div>

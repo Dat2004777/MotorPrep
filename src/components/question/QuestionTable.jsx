@@ -18,9 +18,9 @@ const QuestionTable = ({
   isSelectionMode = false,
   selectedIds = [],
   onToggleSelect,
+  startIndex = 0,
+  totalQuestions = questions.length,
 }) => {
-  const questionLength = questions.length;
-
   return (
     <>
       <div className="rounded-xl border border-slate-200 bg-white shadow w-full p-8">
@@ -49,7 +49,9 @@ const QuestionTable = ({
                     isChecked && isSelectionMode ? "bg-slate-50/80" : ""
                   }
                 >
-                  <TableCell className="w-15">{index + 1}</TableCell>
+                  <TableCell className="w-15">
+                    {startIndex + index + 1}
+                  </TableCell>
                   <TableCell className="max-w-62.5 whitespace-normal wrap-break-word text-justify">
                     {question.questionText}
                   </TableCell>
@@ -103,8 +105,9 @@ const QuestionTable = ({
                   </span>
                 ) : (
                   <span>
-                    Hiển thị 1 - {questionLength} trên tổng số {questionLength}{" "}
-                    câu hỏi
+                    Hiển thị {totalQuestions > 0 ? startIndex + 1 : 0} -{" "}
+                    {startIndex + questions.length} trên tổng số{" "}
+                    {totalQuestions} câu hỏi
                   </span>
                 )}
               </TableCell>

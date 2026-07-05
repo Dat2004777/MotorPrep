@@ -14,6 +14,7 @@ import useExam from "@/hooks/useExam";
 import { useEffect } from "react";
 import CommonPagination from "@/components/CommonPagination";
 import usePagination from "@/hooks/usePagination";
+import { itemsPageLimit } from "@/lib/data";
 
 const AdminTestsPage = () => {
   const { exams, fetchExams, handleDeleteTest } = useExam("AdminTestsPage");
@@ -61,6 +62,8 @@ const AdminTestsPage = () => {
             <TestTable
               exams={visibleData}
               onDeleteTestClick={handleDeleteTest}
+              startIndex={(page - 1) * itemsPageLimit}
+              totalExams={exams.length}
             />
           </div>
 

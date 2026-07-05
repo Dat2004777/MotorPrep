@@ -23,7 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { categoryData } from "@/lib/data";
+import { categoryData, itemsPageLimit } from "@/lib/data";
 import useQuestionFilter from "@/hooks/useQuestionFilter";
 
 const AdminQuestionsPage = () => {
@@ -164,6 +164,8 @@ const AdminQuestionsPage = () => {
             <QuestionTable
               questions={visibleData}
               onDeleteClick={handleDeleteQuestion}
+              startIndex={(page - 1) * itemsPageLimit}
+              totalQuestions={filteredQuestions.length}
             />
           </div>
 

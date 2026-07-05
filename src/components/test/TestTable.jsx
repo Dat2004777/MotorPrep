@@ -10,7 +10,12 @@ import {
 import { Link } from "react-router";
 import { Button } from "../ui/button";
 
-const TestTable = ({ exams, onDeleteTestClick }) => {
+const TestTable = ({
+  exams,
+  onDeleteTestClick,
+  startIndex = 0,
+  totalExams = exams.length,
+}) => {
   return (
     <>
       <div className="rounded-xl border border-slate-200 bg-white shadow w-full p-8">
@@ -27,12 +32,12 @@ const TestTable = ({ exams, onDeleteTestClick }) => {
           <TableBody>
             {exams.map((exam, index) => (
               <TableRow key={exam.id}>
-                <TableCell className="w-15">{index + 1}</TableCell>
+                <TableCell className="w-15">{startIndex + index + 1}</TableCell>
                 <TableCell className="text-left whitespace-normal wrap-break-word">
                   {exam.title}
                 </TableCell>
                 <TableCell className="text-left">
-                  {exam.questionIds.join(", ")}
+                  {exam.questionIds?.join(", ") || ""}
                 </TableCell>
                 <TableCell className="flex gap-2 justify-center">
                   <Link to={`/admin/tests/update/${exam.id}`}>
@@ -55,7 +60,8 @@ const TestTable = ({ exams, onDeleteTestClick }) => {
                 colSpan={5}
                 className="p-4 text-sm text-muted-foreground font-normal"
               >
-                Hiển thị 1-5 trên tổng số 5 đề thi
+                Hiển thị {totalExams > 0 ? startIndex + 1 : 0} -{" "}
+                {startIndex + exams.length} trên tổng số {totalExams} đề thi
               </TableCell>
             </TableRow>
           </TableFooter>
