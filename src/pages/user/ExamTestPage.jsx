@@ -183,10 +183,10 @@ const ExamTestPage = () => {
     <>
       <ExamHeader setIsConfirmOpen={setIsConfirmOpen} />
 
-      <main className="container mx-auto px-10">
+      <main className="container mx-auto px-4 md:px-10">
         <div className="mt-8">
-          <div className="grid grid-cols-12 gap-6">
-            <Card className="col-span-8">
+          <div className="flex flex-col md:grid md:grid-cols-12 gap-6">
+            <Card className="col-span-12 md:col-span-8 md:row-span-2 order-2 md:order-0">
               <CardHeader>
                 <CardDescription>
                   Câu hỏi {currentIndex + 1}/{questionList.length}
@@ -209,51 +209,50 @@ const ExamTestPage = () => {
               </CardContent>
             </Card>
 
-            <div className="col-span-4">
-              <Card>
-                <CardHeader className="text-center">
-                  <CardDescription>Thời gian còn lại</CardDescription>
-                  <CardTitle className="flex items-center gap-2 justify-center">
-                    <Clock />
-                    <span className="text-4xl">{formatTime(timeLeft)}</span>
-                  </CardTitle>
-                </CardHeader>
-              </Card>
+            <Card className="col-span-12 md:col-span-4 order-1 md:order-0">
+              <CardHeader className="text-center">
+                <CardDescription>Thời gian còn lại</CardDescription>
+                <CardTitle className="flex items-center gap-2 justify-center">
+                  <Clock />
+                  <span className="text-4xl">{formatTime(timeLeft)}</span>
+                </CardTitle>
+              </CardHeader>
+            </Card>
 
-              <Card className="mt-4">
-                <CardHeader className="flex justify-between items-center">
-                  <CardTitle>Danh sách câu hỏi</CardTitle>
-                  <span className="text-primary">
-                    {completedCount}/{questionList.length} đã làm
-                  </span>
-                </CardHeader>
-                <CardContent className="grid grid-cols-5 gap-2">
-                  {questionList.map((question, index) => {
-                    const isCurrent = currentIndex === index;
-                    const isAnswered = !!answers[question.id];
+            <Card className="col-span-12 md:col-span-4 order-3 md:order-0">
+              <CardHeader className="flex justify-between items-center">
+                <CardTitle>Danh sách câu hỏi</CardTitle>
+                <span className="text-primary">
+                  {completedCount}/{questionList.length} đã làm
+                </span>
+              </CardHeader>
+              <CardContent className="grid grid-cols-5 gap-2">
+                {questionList.map((question, index) => {
+                  const isCurrent = currentIndex === index;
+                  const isAnswered = !!answers[question.id];
 
-                    return (
-                      <Button
-                        key={question.id}
-                        type="button"
-                        variant="none"
-                        onClick={() => setCurrentIndex(index)}
-                        className={`relative flex items-center justify-center h-12 rounded-xl border font-semibold text-sm transition-all duration-200 p-0 ${
-                          isCurrent
-                            ? "bg-primary text-white border-primary shadow-md"
-                            : isAnswered
-                              ? "bg-blue-50 text-primary border-blue-200 hover:bg-blue-100"
-                              : "bg-slate-50 text-muted-foreground border-slate-200 hover:bg-slate-100"
-                        }`}
-                      >
-                        {index + 1}
-                      </Button>
-                    );
-                  })}
-                </CardContent>
-                <CardContent className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  return (
                     <Button
+                      key={question.id}
+                      type="button"
+                      variant="none"
+                      onClick={() => setCurrentIndex(index)}
+                      className={`relative flex items-center justify-center h-12 rounded-xl border font-semibold text-sm transition-all duration-200 p-0 ${
+                        isCurrent
+                          ? "bg-primary text-white border-primary shadow-md"
+                          : isAnswered
+                            ? "bg-blue-50 text-primary border-blue-200 hover:bg-blue-100"
+                            : "bg-slate-50 text-muted-foreground border-slate-200 hover:bg-slate-100"
+                      }`}
+                    >
+                      {index + 1}
+                    </Button>
+                  );
+                })}
+              </CardContent>
+              <CardContent className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Button
                       variant="outline"
                       disabled={currentIndex === 0}
                       onClick={() => setCurrentIndex((prev) => prev - 1)}
@@ -273,7 +272,6 @@ const ExamTestPage = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </div>
           </div>
         </div>
 
