@@ -1,3 +1,4 @@
+import { categoryData } from "@/lib/data";
 import questionService from "@/services/questionService";
 import { useCallback, useState } from "react";
 import { toast } from "sonner";
@@ -109,7 +110,10 @@ export default function useQuestion(usingPage) {
   const handleAddAnswer = useCallback(async () => {
     const questionData = {
       questionText: questionContent,
-      category: selectedCategory,
+      category:
+        Object.keys(categoryData).find(
+          (key) => categoryData[key] === selectedCategory,
+        ) || selectedCategory,
       isCritical: isCritical,
       options: {
         A: optionA,
@@ -145,7 +149,10 @@ export default function useQuestion(usingPage) {
     async (questionId) => {
       const questionData = {
         questionText: questionContent,
-        category: selectedCategory,
+        category:
+          Object.keys(categoryData).find(
+            (key) => categoryData[key] === selectedCategory,
+          ) || selectedCategory,
         isCritical: isCritical,
         options: {
           A: optionA,

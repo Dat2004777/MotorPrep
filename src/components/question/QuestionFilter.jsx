@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/select";
 import { TriangleAlert } from "lucide-react";
 import { Checkbox } from "../ui/checkbox";
+import { categoryData } from "@/lib/data";
 
 const QuestionFilter = ({
   categories,
@@ -26,7 +27,7 @@ const QuestionFilter = ({
           <div className="mt-4">
             <Select
               onValueChange={onChangeSetCategory}
-              value={selectedCategory}
+              value={categoryData[selectedCategory] || selectedCategory}
             >
               <SelectTrigger className="w-45">
                 <SelectValue placeholder="Danh mục" />
@@ -34,8 +35,11 @@ const QuestionFilter = ({
               <SelectContent>
                 <SelectGroup>
                   {categories.map((category) => (
-                    <SelectItem key={category.id} value={category.name}>
-                      {category.name}
+                    <SelectItem
+                      key={category.id}
+                      value={categoryData[category.name]}
+                    >
+                      {categoryData[category.name]}
                     </SelectItem>
                   ))}
                 </SelectGroup>
