@@ -90,7 +90,7 @@ const HistoryPage = () => {
         <div className="mt-8">
           <Card>
             <CardHeader>
-              <CardContent className="flex gap-4">
+              <CardContent className="flex flex-col md:flex-row gap-4">
                 <div className="flex gap-2">
                   <p className="flex my-auto">Tên bộ đề: </p>
                   <div>

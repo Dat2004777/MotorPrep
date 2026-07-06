@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import useExam from "@/hooks/useExam";
 import usePagination from "@/hooks/usePagination";
 import useQuestion from "@/hooks/useQuestion";
@@ -118,7 +118,7 @@ const AdminTestUpdatePage = () => {
   return (
     <>
       <SidebarProvider>
-        {/* <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "} */}
+        <SidebarTrigger className="absolute top-2 left-2 z-10 p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
         <main className="w-full grow p-8">
           <div>
@@ -156,7 +156,7 @@ const AdminTestUpdatePage = () => {
                   <Card>
                     <CardHeader>
                       <CardContent className="flex justify-between">
-                        <div className="flex gap-4">
+                        <div className="flex flex-col md:flex-row gap-4">
                           <div className="flex gap-2">
                             <p className="flex my-auto">Nội dung câu hỏi: </p>
                             <div>

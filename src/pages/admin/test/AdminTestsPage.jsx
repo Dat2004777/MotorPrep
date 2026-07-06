@@ -1,4 +1,4 @@
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AdminSidebar from "@/components/layouts/AdminSidebar";
 import {
   Card,
@@ -35,7 +35,7 @@ const AdminTestsPage = () => {
   return (
     <>
       <SidebarProvider>
-        {/* <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "} */}
+        <SidebarTrigger className="absolute top-2 left-2 z-10 p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
         <main className="w-full grow p-8">
           <div>

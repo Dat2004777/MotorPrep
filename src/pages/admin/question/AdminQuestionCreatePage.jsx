@@ -89,9 +89,9 @@ const AdminQuestionCreatePage = () => {
   return (
     <>
       <SidebarProvider>
-        {/* <SidebarTrigger className="p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "} */}
+        <SidebarTrigger className="absolute top-2 left-2 z-10 p-2 border rounded-lg hover:bg-slate-100 transition-colors shadow-sm" />{" "}
         <AdminSidebar />
-        <main className="w-full grow p-8">
+        <main className="w-full grow p-4 md:p-8">
           <div>
             <Card>
               <CardHeader>
@@ -105,9 +105,9 @@ const AdminQuestionCreatePage = () => {
             </Card>
           </div>
 
-          <div className="p-8 rounded-xl border border-slate-200 bg-white shadow mt-8">
-            <div className="grid grid-cols-12 gap-8">
-              <div className="flex flex-col gap-8 col-span-8">
+          <div className="p-4 md:p-8 rounded-xl border border-slate-200 bg-white shadow mt-6 md:mt-8">
+            <div className="grid grid-cols-12 gap-6 md:gap-8">
+              <div className="flex flex-col gap-6 md:gap-8 col-span-12 md:col-span-8">
                 <div>
                   <QuestionContent
                     questionContent={questionContent}
@@ -122,7 +122,7 @@ const AdminQuestionCreatePage = () => {
                         <ListChecks className="text-primary" size={16} />
                         <p className="font-semibold text-lg">Các đáp án</p>
                       </div>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <QuestionAnswer
                           label="A"
                           value={optionA}
@@ -160,7 +160,7 @@ const AdminQuestionCreatePage = () => {
                 </div>
               </div>
 
-              <div className="col-span-4">
+              <div className="col-span-12 md:col-span-4">
                 <QuestionFilter
                   categories={categories}
                   selectedCategory={selectedCategory}
